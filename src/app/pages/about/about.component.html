@@ -1,1 +1,49 @@
-<p>about works!</p>
+<section class="row">
+    <h2>Forms Version #1 With Two-way binding</h2><br>
+    <div class="col-md-2">
+        <label for="userName">Username:</label>
+        <input type="text" [(ngModel)]="userObj.username" />
+    </div>
+    <div class="col-md-2">
+        <label for="userName">Password:</label>
+        <input type="password" [(ngModel)]="userObj.password" />
+    </div>
+    <div class="col-md-2">
+        <label for="userName">Email:</label>
+        <input type="text" [(ngModel)]="userObj.email" />
+    </div>
+    <button type="button" (click)="processData()"> Submit </button>
+
+    <br><br>
+    <hr>
+    <br><br>
+
+    <h2>Forms Version #2 Reactive Forms</h2><br>
+    <form [formGroup]="userSignupForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" formControlName="username">
+            <div *ngIf="userSignupForm.get('username')?.invalid && userSignupForm.get('username')?.touched">
+                Username is required
+            </div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">
+            <div *ngIf="userSignupForm.get('password')?.invalid && userSignupForm.get('password')?.touched">
+                Password is required
+            </div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" formControlName="email">
+            <div *ngIf="userSignupForm.get('username')?.invalid && userSignupForm.get('email')?.touched">
+                Email is required
+            </div>
+        </div>
+        <button type="submit" [disabled]="userSignupForm.invalid">
+            Save
+        </button>
+    </form>
+
+</section>
