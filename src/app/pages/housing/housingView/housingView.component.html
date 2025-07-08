@@ -1,0 +1,10 @@
+<section>
+    <form>
+        <input type="text" placeholder="filter by city">
+        <button class="primary" type="button">Search</button>
+    </form>
+</section>
+<section class="results">
+    <app-housing-model *ngFor="let housingModel of housingModelList" [housingModel]="housingModel">
+    </app-housing-model>
+</section>
