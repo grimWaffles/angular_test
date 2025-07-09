@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, FormsModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
@@ -22,22 +22,27 @@ export class AboutComponent {
 
   processData() {
     console.log('Form submitted')
-    console.log("UserObj",this.userObj)
+    console.log("UserObj", this.userObj)
   }
 
-   //For Forms Version #2
-   userSignupForm : FormGroup;
+  //For Forms Version #2
+  userSignupForm: FormGroup;
 
-   constructor(private formBuilder : FormBuilder){
+  constructor(private formBuilder: FormBuilder) {
+
     this.userSignupForm = this.formBuilder.group({
-      username:['',Validators.required],
-      email:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required,Validators.min(8)]]
+      username: [this.userObj.username, Validators.required],
+      email: [this.userObj.email, [Validators.required, Validators.email]],
+      password: [this.userObj.password, [Validators.required, Validators.minLength(8)]]
     });
-   }
 
-   onSubmit(){
+    // this.userSignupForm.controls['username'].setValue(this.userObj.username)
+    // this.userSignupForm.controls['password'].setValue(this.userObj.password)
+    // this.userSignupForm.controls['email'].setValue(this.userObj.email)
+  }
+
+  onSubmit() {
     console.log("Form submitted")
     console.log("UserForm", this.userSignupForm)
-   }
+  }
 }

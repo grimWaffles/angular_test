@@ -31,7 +31,7 @@
             <label for="password">Password</label>
             <input type="password" formControlName="password">
             <div *ngIf="userSignupForm.get('password')?.invalid && userSignupForm.get('password')?.touched">
-                Password is required
+                Password must be a minimum of 8 digits
             </div>
         </div>
         <div>
@@ -42,8 +42,7 @@
             </div>
         </div>
         <button type="submit" [disabled]="userSignupForm.invalid">
-            Save
+            Save 
         </button>
     </form>
-
 </section>
