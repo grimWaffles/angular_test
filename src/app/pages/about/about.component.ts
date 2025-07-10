@@ -4,11 +4,10 @@ import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+    selector: 'app-about',
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
   data: string[] = ['Apples', 'Oranges', 'Purple']
